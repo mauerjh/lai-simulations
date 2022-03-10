@@ -60,7 +60,7 @@ awk '{print $1, $2}' merged_INPDall_1KG_HGDP_hg38_QC_removeCHMI.fam | grep 'M2' 
 awk '{print $1, $2}' merged_INPDall_1KG_HGDP_hg38_QC_removeCHMI.fam | grep 'P1' >>  inpd-all_1kg_hgdp_keep.txt
 awk '{print $1, $2}' merged_INPDall_1KG_HGDP_hg38_QC_removeCHMI.fam | grep 'P2' >>  inpd-all_1kg_hgdp_keep.txt
 
-tail -n 1031 ../pca-admixture/keep_pops_interest.txt | awk '{print 0, $2}' >> inpd-all_1kg_hgdp_keep.txt
+egrep "Surui|Karitiana|Maya|Pima|Colombian|IBS|CEU|GBR|TSI|Italian|Tuscan|French|YRI|ESN|Yoruba|BantuKenya|BantuSouthAfrica" ../pca-admixture/merged_INPD_1KG_HGDP_pops_interest_second.fam | awk '{print 0, $2}' >> inpd-all_1kg_hgdp_keep.txt
 
 /storage/atkinson/shared_resources/software/plink2/plink2 --bfile merged_INPDall_1KG_HGDP_hg38_QC_removeCHMI --keep inpd-all_1kg_hgdp_keep.txt --make-bed --out merged_INPDall_1KG_HGDP_hg38_chrpos_pops_interest
 
